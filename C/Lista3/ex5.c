@@ -11,6 +11,6 @@ int main() {
     else{
         total= numero+8;
     }
-    printf("seu numero e par e somando 5 da %d", total);
+    printf("o resultado deu %d", total);
     return 0;
 }
