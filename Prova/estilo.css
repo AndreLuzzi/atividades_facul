@@ -1,10 +1,15 @@
 header {
-    background: #333;
-    color: #fff;
+    background: #474747;
+    color: #000000;
     padding: 30px;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
+}
 
+body{
+    background-color: #838080fa;
+    text-align: center;
+    padding: 30px 300px;
 }
 
 h2, h3{
@@ -12,13 +17,30 @@ h2, h3{
 }
 
 .titulos{
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
-    
 }
 
 .texto{
     text-align: justify;
-    font-size: 18px;
-    
+    font-size: 20px;
+}
+
+.foto{
+    width: 300px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.foto1{
+    width: 472px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+input{
+    font-size: 20px;
+    background-color: rgb(88, 82, 82);
 }

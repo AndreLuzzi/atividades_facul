@@ -1,0 +1,22 @@
+section {
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 515px;
+    background: #a8a8a8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    text-align: center;
+}
+
+body{
+    padding: 0px 650px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #cccccc;
+}
+
+p{
+    text-align: justify;
+}
