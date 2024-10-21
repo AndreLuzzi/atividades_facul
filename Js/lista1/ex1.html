@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada com Diferentes Laços</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1, h3 {
+            color: #2c3e50;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        div {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .result {
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerador de Tabuada</h1>
+    <label for="numero">Informe o número da tabuada:</label><br>
+    <input type="number" id="numero" min="1" value="">
+    
+    <br><br>
+
+    <button onclick="gerarTabuadas()">Gerar Tabuadas</button>
+
+    <h3>Tabuada com While:</h3>
+    <div id="whileResultado" class="result">A tabuada será exibida aqui...</div>
+
+    <h3>Tabuada com Do...While:</h3>
+    <div id="doWhileResultado" class="result">A tabuada será exibida aqui...</div>
+
+    <h3>Tabuada com For:</h3>
+    <div id="forResultado" class="result">A tabuada será exibida aqui...</div>
+
+    <script>
+        function gerarTabuadas() {
+            var num = document.getElementById("numero").value; // Pega o número informado pelo usuário
+
+            // Limpa os resultados anteriores
+            document.getElementById("whileResultado").innerHTML = "";
+            document.getElementById("doWhileResultado").innerHTML = "";
+            document.getElementById("forResultado").innerHTML = "";
+
+            // Tabuada com while
+            var i = 0;
+            while (i <= 10) {
+                document.getElementById("whileResultado").innerHTML += num + " x " + i + " = " + (num * i) + "<br>";
+                i++;
+            }
+
+            // Tabuada com do...while
+            i = 0;
+            do {
+                document.getElementById("doWhileResultado").innerHTML += num + " x " + i + " = " + (num * i) + "<br>";
+                i++;
+            } while (i <= 10);
+
+            // Tabuada com for
+            for (i = 0; i <= 10; i++) {
+                document.getElementById("forResultado").innerHTML += num + " x " + i + " = " + (num * i) + "<br>";
+            }
+        }
+    </script>
+</body>
+</html>
