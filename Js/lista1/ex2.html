@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Índice de Massa Corporal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1, h3 {
+            color: #2c3e50;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        div {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .resultado {
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de IMC</h1>
+    <label for="peso">Informe o seu peso em KG:</label><br>
+    <input type="number" id="peso" min="1" value="">
+
+    <br>
+
+    <label for="altura">Informe sua altura em Metros:</label><br>
+    <input type="number" id="altura" min="1" value="">
+
+    <br>
+
+    <button onclick="CalcularIMC()">Calcular IMC</button>
+
+    <h3>Seu IMC:</h3>
+    <div id="whileResultado" class="resultado">Seu IMC será exibido aqui...</div>
+
+
+    <script>
+        function CalcularIMC() {
+            var peso = document.getElementById("peso").value; // Pega o número informado pelo usuário
+            var altura = document.getElementById("altura").value;
+
+            // Limpa os resultados anteriores
+            document.getElementById("whileResultado").innerHTML = "";
+
+            // Tabuada com while
+                document.getElementById("whileResultado").innerHTML = peso / (altura * altura);
+        }
+    </script>
+</body>
+</html>
