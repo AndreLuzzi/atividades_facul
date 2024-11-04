@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #bb5ce0;
             color: #333;
             text-align: center;
             padding: 20px;
@@ -55,32 +55,43 @@
 </head>
 <body>
     <h1>Calculadora de IMC</h1>
-    <label for="peso">Informe o seu peso em KG:</label><br>
-    <input type="number" id="peso" min="1" value="">
+    <div class="container">
+        <label for="altura">Altura (em metros):</label><br>
+        <input type="number" id="altura" placeholder="Ex: 1.70" step="0.01" min="0"><br>
 
-    <br>
+        <label for="peso">Peso (em kg):</label><br>
+        <input type="number" id="peso" placeholder="Ex: 80.5" step="0.1" min="0"><br>
 
-    <label for="altura">Informe sua altura em Metros:</label><br>
-    <input type="number" id="altura" min="1" value="">
+        <button onclick="calcularIMC()">Calcular IMC</button>
 
-    <br>
-
-    <button onclick="CalcularIMC()">Calcular IMC</button>
-
-    <h3>Seu IMC:</h3>
-    <div id="whileResultado" class="resultado">Seu IMC será exibido aqui...</div>
-
+        <div id="resultado" class="result">O resultado será exibido aqui...</div>
+    </div>
 
     <script>
-        function CalcularIMC() {
-            var peso = document.getElementById("peso").value; // Pega o número informado pelo usuário
-            var altura = document.getElementById("altura").value;
+        function calcularIMC() {
+            var altura = parseFloat(document.getElementById('altura').value);
+            var peso = parseFloat(document.getElementById('peso').value);
 
-            // Limpa os resultados anteriores
-            document.getElementById("whileResultado").innerHTML = "";
+            if (isNaN(altura) || isNaN(peso) || altura <= 0 || peso <= 0) {
+                document.getElementById('resultado').innerHTML = "Por favor, insira valores válidos!";
+                return;
+            }
 
-            // Tabuada com while
-                document.getElementById("whileResultado").innerHTML = peso / (altura * altura);
+            var imc = peso / (altura * altura);
+            var resultado = '';
+
+            if (imc < 18.5) {
+                resultado = "Abaixo do peso";
+            } else if (imc >= 18.5 && imc < 24.9) {
+                resultado = "Peso normal";
+            } else if (imc >= 25 && imc < 29.9) {
+                resultado = "Sobrepeso";
+            } else {
+                resultado = "Obesidade";
+            }
+
+            document.getElementById('resultado').innerHTML = 
+                "Seu IMC é " + imc.toFixed(2) + " (" + resultado + ")";
         }
     </script>
 </body>

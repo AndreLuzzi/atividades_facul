@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estação do Ano</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #59ccd4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        margin: 0;
+        }
+
+        .container {
+            background-color: rgb(194, 186, 186);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digite o mês para descobrir a estação</h1>
+        <input type="text" id="mes" placeholder="Digite o mês (ex: Janeiro)">
+        <button onclick="verificarEstacao()">Verificar Estação</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+
+function verificarEstacao() {
+    const mes = document.getElementById("mes").value.trim().toLowerCase();
+    let estacao = "";
+    let imagem = "";
+
+    switch (mes) {
+        case "janeiro":
+        case "fevereiro":
+        case "março":
+            estacao = "Verão";
+            imagem = "verao.jpg";
+            break;
+        case "abril":
+        case "maio":
+        case "junho":
+            estacao = "Outono";
+            imagem = "outono.jpg";
+            break;
+        case "julho":
+        case "agosto":
+        case "setembro":
+            estacao = "Inverno";
+            imagem = "inverno.jpg";
+            break;
+        case "outubro":
+        case "novembro":
+        case "dezembro":
+            estacao = "Primavera";
+            imagem = "primavera.jpg";
+            break;
+        default:
+            estacao = "Mês inválido. Tente novamente.";
+            imagem = "";
+            break;
+    }
+
+    const resultadoDiv = document.getElementById("resultado");
+    resultadoDiv.innerHTML = `<h2>${estacao}</h2>`;
+    if (imagem) {
+        resultadoDiv.innerHTML += `<img src="${imagem}" alt="${estacao}" style="width:300px; height:auto;">`;
+    }
+}
+    </script>
+</body>
+</html>
