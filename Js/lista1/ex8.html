@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrossel</title>
     <style>
+        /* Centraliza o conteúdo da página */
+        body {
+            display: flex;
+            justify-content: center; /* Alinha horizontalmente */
+            align-items: center; /* Alinha verticalmente */
+            height: 100vh; /* Usa toda a altura da tela */
+            margin: 0; /* Remove a margem padrão */
+            background-color: #f0f0f0; /* Fundo claro para contraste */
+        }
+
         .carrossel {
-            width: 300px; /* Largura do carrossel ajustada para a largura da imagem */
+            width: 300px; /* Largura do carrossel */
             position: relative;
             overflow: hidden;
         }
+
         .carimg {
             display: flex;
             transition: transform 1s ease; /* Transição suave */
         }
+
         .carimg img {
-            width: 300px; /* Tamanho fixo das imagens */
-            height: 300px; /* Tamanho fixo das imagens */
+            width: 300px; /* Largura das imagens */
+            height: 300px; /* Altura das imagens */
         }
+
+        /* Estilo dos botões */
         .botao {
             position: absolute;
             top: 50%;
@@ -27,10 +41,13 @@
             border: none;
             padding: 10px;
             cursor: pointer;
+            z-index: 10; /* Garante que os botões fiquem acima das imagens */
         }
+
         .anterior {
             left: 10px;
         }
+
         .proximo {
             right: 10px;
         }
