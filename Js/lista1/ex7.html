@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandir texto</title>
+    <style>
+        .texto1{
+            cursor: pointer;
+            color: rgb(104, 79, 59);
+            overflow: hidden;
+            width: 150px;
+            height: 50px;
+            border: 2px rgb(126, 4, 51) solid;
+            padding: 2%;
+        }
+        .texto2{
+            cursor: pointer;
+            color: rgb(110, 121, 52);
+            width: 300px;
+            height: 100px;
+            padding: 2%;
+        }
+        
+    </style>
+</head>
+<body>
+    <p id="texto" class="texto1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, earum ratione. Nisi veniam cum, placeat optio voluptatibus quasi consectetur a autem architecto ipsum, eveniet minus,magni dolorum non recusandae rerum.</p>
+    <button id="Expandir" class="btn">Expandir</button>
+        <script>
+                document.getElementById("Expandir").addEventListener("click", function(){
+                const txt = document.getElementById("texto")
+                const btn = document.getElementById("Expandir")
+                txt.classList.toggle("texto2");
+
+                if(txt.classList.contains("texto2")){
+                    btn.textContent = "Diminuir"
+                }else{
+                    btn.textContent = "Expandir"
+                }
+                });
+        </script>
+</body>
+</html>

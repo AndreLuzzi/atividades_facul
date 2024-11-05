@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel</title>
+    <style>
+        .carrossel {
+            width: 300px; /* Largura do carrossel ajustada para a largura da imagem */
+            position: relative;
+            overflow: hidden;
+        }
+        .carimg {
+            display: flex;
+            transition: transform 1s ease; /* Transição suave */
+        }
+        .carimg img {
+            width: 300px; /* Tamanho fixo das imagens */
+            height: 300px; /* Tamanho fixo das imagens */
+        }
+        .botao {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%); /* Centraliza os botões verticalmente */
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .anterior {
+            left: 10px;
+        }
+        .proximo {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carrossel">
+        <div class="carimg" id="carrosselimg">
+            <img src="cirilo.jpg" alt="Imagem 1">
+            <img src="maria.jpg" alt="Imagem 2">
+            <img src="amor.jpg" alt="Imagem 3">
+        </div>
+        <button class="botao anterior" onclick="mudarImg(-1)">&#10094;</button>
+        <button class="botao proximo" onclick="mudarImg(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let indiceatual = 0;
+        const imagens = document.getElementById("carrosselimg");
+        const total = imagens.children.length;
+
+        // Função para mostrar a imagem com base no índice
+        function mostrarImg(indice) {
+            if (indice >= total) {
+                indiceatual = 0;  // Vai para a primeira imagem se ultrapassar o total
+            } else if (indice < 0) {
+                indiceatual = total - 1;  // Vai para a última imagem se o índice for negativo
+            } else {
+                indiceatual = indice;  // Caso contrário, apenas atualiza o índice
+            }
+
+            // Obtém a largura da imagem (300px) e faz a transição horizontal
+            const larguraimg = imagens.children[0].clientWidth;
+            imagens.style.transform = `translateX(${-larguraimg * indiceatual}px)`;
+        }
+
+        // Função para mudar a imagem conforme a direção (-1 ou 1)
+        function mudarImg(direcao) {
+            mostrarImg(indiceatual + direcao);
+        }
+
+        // Inicializa o carrossel
+        mostrarImg(indiceatual);
+    </script>
+</body>
+</html>
