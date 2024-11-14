@@ -1,93 +1,149 @@
-
+/* Reset de estilos básicos */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+/* Estilos do link */
 a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: inherit; /* Faz com que o link herde a cor do texto */
 }
 
+/* Cor de fundo e fonte padrão do body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(185, 210, 248);
+    font-family: 'Arial', sans-serif;
+    background-color: #815c2ace;
+    color: #333;
+    line-height: 1.6;
 }
-header {
-    height: 150px;
-    background-color: #9cc3f0;
-    text-align: center;
 
+/* Estilos do cabeçalho */
+header {
+    height: 180px;
+    background-color: #815b2a;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
 }
+
+/* Título do cabeçalho */
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Estilos de navegação */
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
 }
-nav ul li a {
-   
-    text-decoration: none;
+
+nav ul li {
+    margin: 0 15px;
 }
-main{
+
+nav ul li a {
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #684b16;
+}
+
+/* Estilos do conteúdo principal */
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
     text-align: center;
 }
+
+/* Estilos das seções */
+section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+section p {
+    font-size: 1rem;
+    color: #555;
+}
+
+section a {
+    color: #0077cc;
+    font-weight: bold;
+}
+
+section a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos do rodapé */
+footer {
+    text-align: center;
+    background-color: #815b2a;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 1rem;
+}
+
+/* Responsividade para telas pequenas (até 768px) */
 @media (max-width: 767px) {
     header {
-        display: flex;
-        font-size: 1rem;
-        COLOR:BLUE;
-        flex-direction: column;
+        height: 130px;
     }
-
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
     nav ul {
         flex-direction: column;
     }
-
+    
     nav ul li {
-        flex-direction: column;
+        margin: 10px 0;
     }
-
+    
     section {
-       
         font-size: 0.9rem;
     }
 }
 
-/* Responsividade para telas atÃ© 768px - 1024*/
+/* Responsividade para telas médias (768px a 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
-    header {
-        font-size: 1.5rem;
-        color:red;
-    }
     main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-       
+        grid-template-columns: repeat(2, 1fr);
     }
-    nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-
-    }
-
+    
     section {
-       
-        WIDTH:50%;
+        font-size: 1.1rem;
     }
 }
 
-/* Responsividade para telas maior 1024px */
+/* Responsividade para telas grandes (acima de 1024px) */
 @media (min-width: 1024px) {
     main {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        color:green;
+        grid-template-columns: repeat(4, 1fr);
     }
 
     section {
-        width: 25%;
-        font-size: 2.0rem;
+        font-size: 1.3rem;
     }
 }
