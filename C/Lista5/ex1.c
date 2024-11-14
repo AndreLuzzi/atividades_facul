@@ -1,8 +1,12 @@
 #include <stdio.h>
 
-void main(){
+int main() {
+    int i = 1;
     
-    for (int cont=1;cont<=20;cont++){
-        printf("Esta e a mensagem %d\n",cont);
+    while (i <= 20) { 
+        printf("Esta e a mensagem %d\n", i);
+        i++;
     }
+    
+    return 0;
 }
