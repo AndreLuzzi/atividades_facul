@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigo</title>
+    <style>
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #222;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #444;
+            margin-top: 20px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            text-align: justify;
+            text-indent: 50px;
+        }
+
+        .carrossel {
+            position: relative;
+            width: 300px; 
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+        }
+
+        .carimg {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carimg img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .botao {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 1.5rem;
+        }
+
+        .anterior {
+            left: 10px;
+        }
+
+        .proximo {
+            right: 10px;
+        }
+
+        .botao:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .conteudo {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .texto1 {
+            overflow: hidden;
+            width: 800px;
+            height: 170px;
+            transition: height 0.3s ease;
+        }
+
+        .texto2 {
+            width: 800px;
+            height: auto;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn:hover {
+            background-color: #303030;
+        }
+    </style>
+</head>
+<body>
+    <h1>Semana da Consciência Negra <br> Frederick McKinley Jones</h1>
+    <div class="carrossel">
+        <div class="carimg" id="carrosselimg">
+            <img src="frederick1.jpg" alt="Imagem 1">
+            <img src="frederick2.jpg" alt="Imagem 2">
+            <img src="frederick3.jpg" alt="Imagem 3">
+        </div>
+        <button class="botao anterior" onclick="mudarImg(-1)">&#10094;</button>
+        <button class="botao proximo" onclick="mudarImg(1)">&#10095;</button>
+    </div>
+    <div class="conteudo">
+        <h2>Introdução</h2>
+        <div id="texto1" class="texto1">
+            <p>A escravidão no Brasil durou mais de 300 anos e deixou marcas profundas na estrutura social, econômica e cultural do país. A população negra, mesmo após a abolição formal da escravatura em 1888, continuou a ser marginalizada, enfrentando condições desumanas de vida e sendo excluída dos processos de ascensão social. O racismo estrutural, que se manifesta nas desigualdades educacionais, econômicas e até nas relações interpessoais, é um reflexo direto dessa história de opressão que ainda impacta as gerações atuais. O Dia da Consciência Negra surge, portanto, não apenas como um tributo ao passado, mas como um clamor por justiça, reconhecimento e igualdade. <br></p>
+            <p>Neste dia, é essencial que nos lembremos da importância da luta contínua por um Brasil mais justo e igualitário, onde as vozes negras sejam ouvidas e respeitadas. Celebrar a Consciência Negra é celebrar as contribuições fundamentais que a população afro-brasileira trouxe para a formação cultural, social e política do país. A culinária, a música, a religiosidade, a literatura, as danças e tantas outras manifestações culturais são apenas alguns dos legados de um povo que, mesmo diante das adversidades, se ergueu e ressignificou sua história. <br></p>
+            <p >Mas a data também nos chama a uma ação concreta. O Dia da Consciência Negra não pode ser apenas uma lembrança passiva de um passado de lutas. Ele deve ser, antes de tudo, um estímulo à educação antirracista, à revisão de políticas públicas que promovam a equidade e à reflexão constante sobre o papel de cada um de nós na construção de uma sociedade mais inclusiva. A verdadeira consciência negra se reflete em cada passo dado para erradicar o racismo e garantir a valorização da cultura e da identidade afro-brasileira em todos os espaços da sociedade.</p>
+        </div>
+        <button id="LerMais1" class="btn">Ler Mais</button>
+
+        <h2>Biografia</h2>
+        <div id="texto2" class="texto1">
+            <p>Frederick McKinley Jones (1893-1961) foi um inventor e empresário afro-americano de grande importância histórica, conhecido principalmente por suas contribuições pioneiras para o desenvolvimento da tecnologia de refrigeração. Nascido no Mississippi, Jones enfrentou diversas dificuldades devido ao racismo e à pobreza, mas seu talento e dedicação à ciência o levaram a se destacar em várias áreas. Sua trajetória é um exemplo de superação, já que, apesar das barreiras impostas pela sociedade da época, ele se tornou um dos inventores mais prolíficos de sua geração. <br></p>
+            <p>Jones é especialmente lembrado por ter criado o primeiro sistema de refrigeração portátil para transporte de alimentos, o que revolucionou a indústria alimentícia e possibilitou o transporte seguro e eficiente de produtos perecíveis, um avanço crucial para a logística de alimentos em todo o mundo. Sua invenção foi essencial para o desenvolvimento do transporte de alimentos e medicamentos em larga escala, o que, por sua vez, contribuiu para melhorias nas condições de saúde pública e para o crescimento do comércio global. Ele também inventou um dispositivo para comunicação sem fio em veículos, um avanço significativo para a tecnologia de radiocomunicação. <br></p>
+            <p>Em reconhecimento a sua genialidade, Jones foi premiado com mais de 60 patentes ao longo de sua vida, embora muitos de seus feitos não tenham recebido a atenção merecida devido ao contexto de discriminação racial. Sua invenção do sistema de refrigeração, em particular, foi fundamental durante a Segunda Guerra Mundial, quando se tornou crucial para o transporte de suprimentos médicos e alimentos para as forças aliadas, salvando inúmeras vidas. Seu legado também se reflete na criação da empresa de refrigeração que fundou, que prosperou durante décadas. <br></p>
+            <p>Frederick McKinley Jones foi um dos grandes visionários de sua época, e sua história nos lembra da importância de valorizar a contribuição de pessoas negras para o avanço da ciência e da tecnologia. Sua obra não apenas impactou o setor industrial, mas também desafiou as limitações impostas pela sociedade segregacionista dos Estados Unidos, mostrando que a inovação e a criatividade não conhecem barreiras raciais. Ao reconhecer sua importância, celebramos não apenas suas invenções, mas também o espírito de resistência e a força transformadora da comunidade afro-americana.</p>
+        </div>
+        <button id="LerMais2" class="btn">Ler Mais</button>
+
+        <h2>Conclusão</h2>
+        <div id="texto3" class="texto1">
+            <p>O Dia da Consciência Negra é, portanto, muito mais do que uma data comemorativa; é um momento de reflexão sobre as conquistas, os desafios e as lutas que a população negra enfrentou e continua a enfrentar no Brasil e no mundo. Ao celebrarmos essa data, é essencial reconhecer as inúmeras contribuições que os negros fizeram e continuam a fazer para o avanço das sociedades, como exemplificado na trajetória de figuras históricas como Zumbi dos Palmares e de inovadores como Frederick McKinley Jones. A resistência, a criatividade e a superação são marcas de um povo que, apesar de todas as adversidades, jamais deixou de contribuir para o desenvolvimento humano em diversas áreas, da cultura à tecnologia, da política à ciência. <br></p>
+            <p>Portanto, o Dia da Consciência Negra nos chama a agir, a reconhecer as contribuições do passado e a lutar pelo futuro. Celebrar a história e as conquistas dos negros é também um compromisso com a construção de uma sociedade mais justa e igualitária, onde o racismo seja erradicado e a diversidade seja valorizada. A trajetória de grandes personalidades como Jones nos lembra que a verdadeira força da luta negra está em transformar o sofrimento e a exclusão em inovação, e em fazer com que o legado de resistência se perpetue por meio de ações concretas que promovam o respeito, a equidade e a inclusão em todos os aspectos da vida social.</p>
+        </div>
+        <button id="LerMais3" class="btn">Ler Mais</button>
+    </div>
+
+    <script>
+        let indiceatual = 0;
+        const imagens = document.getElementById("carrosselimg");
+        const total = imagens.children.length;
+
+        function mostrarImg(indice) {
+            if (indice >= total) {
+                indiceatual = 0; 
+            } else if (indice < 0) {
+                indiceatual = total - 1;
+            } else {
+                indiceatual = indice;
+            }
+            const larguraimg = imagens.children[0].clientWidth;
+            imagens.style.transform = `translateX(${-larguraimg * indiceatual}px)`;
+        }
+
+        function mudarImg(direcao) {
+            mostrarImg(indiceatual + direcao);
+        }
+
+        mostrarImg(indiceatual);
+
+        function toggleTexto(elementId, buttonId) {
+            const txt = document.getElementById(elementId);
+            const btn = document.getElementById(buttonId);
+            txt.classList.toggle("texto2");
+
+            if (txt.classList.contains("texto2")) {
+                btn.textContent = "Ler Menos";
+            } else {
+                btn.textContent = "Ler Mais";
+            }
+        }
+
+        document.getElementById("LerMais1").addEventListener("click", function() {
+            toggleTexto("texto1", "LerMais1");
+        });
+
+        document.getElementById("LerMais2").addEventListener("click", function() {
+            toggleTexto("texto2", "LerMais2");
+        });
+
+        document.getElementById("LerMais3").addEventListener("click", function() {
+            toggleTexto("texto3", "LerMais3");
+        });
+    </script>
+</body>
+</html>

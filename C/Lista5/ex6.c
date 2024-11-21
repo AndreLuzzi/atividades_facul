@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 void main(){
-    int numero;
+    int idade;
+    int media;
     int i = 1;
     int soma = 0;
 
@@ -18,4 +19,3 @@ void main(){
     
     return 0;
 }
-
