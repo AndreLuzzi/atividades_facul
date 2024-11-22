@@ -1,30 +1,27 @@
 #include <stdio.h>
 
-void leVetorInteiro(int vetor[], int tamanho){
-    for(int i = 0; i < tamanho; i++) {
-        printf("[%d]= ", i);
-        scanf("%d", &vetor[i]);    
-    }
-}
-
-void escreveVetorInteiro(int vetor[], int tamanho){
-    for(int i = 0; i < tamanho; i++) {
-        printf("[%d]= %d\n", i, vetor[i]);
-    }
-}
-//questao 12
-void vetFibonacci(int vetor[],int tamanho){
-    vetor[0]=0;
-    vetor[1]=1;
-    for (int i=2;i<tamanho;i++){
-        vetor[i] = vetor[i-1]+vetor[i-2];
-    }
-}
-
 void main(){
-    int tam = 10;
-    int vet[tam];
+    int matriz[6][6];
 
-    vetFibonacci(vet,tam);
-    escreveVetorInteiro(vet,tam);
+    for(int l=0;l<6;l++){
+        for(int c=0;c<6;c++){
+            printf("matriz[%d][%d]:",l,c);
+            scanf("%d",&matriz[l][c]);
+        }
+    }
+
+    int soma = 0;
+    for(int i=0;i<6;i++){
+        soma = soma + matriz[i][i];
+    }
+
+    for(int l=0;l<6;l++){
+        for(int c=0;c<6;c++){
+            printf("%d",matriz[l][c]);
+        }
+        printf("\n");
+    }
+
+    printf("\n %d",soma);
+
 }
