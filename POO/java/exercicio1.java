@@ -1,34 +1,15 @@
+
 import java.util.Scanner;
 
 public class exercicio1 {
+
     public static void main(String[] args) {
-       
+
+        System.out.println("Escreva seu nome");
         Scanner scanner = new Scanner(System.in);
+        String nome = scanner.nextLine();
+        System.out.println("Olá "+ nome);
 
-        int num1, num2, soma, produto, diferenca, media, razao;
-
-        System.out.print("Digite o primeiro número: ");
-        num1 = scanner.nextInt();
-        
-        System.out.print("Digite o segundo número: ");
-        num2 = scanner.nextInt();
-
-        soma = num1 + num2;
-
-        produto = num1 * num2;
-
-        diferenca = num1 - num2;
-
-        media = (num1 + num2) / 2;
-
-        razao = num1/num2;
-
-        System.out.println("A soma dos dois números é: " + soma);
-        System.out.println("O produto dos dois números é: " + produto);
-        System.out.println("A diferenca dos dois números é: " + diferenca);
-        System.out.println("A media dos dois números é: " + media);
-        System.out.println("A razao dos dois números é: " + razao);
-
-        scanner.close();
     }
+    
 }
