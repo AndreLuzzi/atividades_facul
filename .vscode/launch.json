@@ -3,6 +3,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TesteScanner",
+      "request": "launch",
+      "mainClass": "TesteScanner",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio1",
+      "request": "launch",
+      "mainClass": "exercicio1",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio3",
+      "request": "launch",
+      "mainClass": "exercicio3",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio4",
+      "request": "launch",
+      "mainClass": "exercicio4",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio2",
+      "request": "launch",
+      "mainClass": "exercicio2",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
       "name": "exercicio1",
       "request": "launch",
       "mainClass": "exercicio1",
