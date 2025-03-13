@@ -9,7 +9,7 @@ public class Principal {
         Pessoa p3 = new Pessoa();
 
         //Nome e idade
-        /*p1.nome = "João";
+        p1.nome = "João";
         p1.idade = 25;
 
         System.out.println("Nome "+p1.nome);
@@ -28,7 +28,7 @@ public class Principal {
 
         System.out.println("Nome "+p3.nome);
         System.out.println("Idade "+p3.idade);
-        p3.falar(); */
+        p3.falar();
     }
 
 }
