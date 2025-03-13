@@ -9,7 +9,7 @@ public class Aluno {
     public int matricula;
 
     public Aluno(){
-        System.out.println("Essas sao as informacoes do aluno");
+        System.out.println("Essas sao as informacoes do aluno: ");
     }
 
     public void informacoes(){

@@ -10,8 +10,8 @@ public class PrincipalAluno {
         a1.idade = 24;
         a1.matricula = 12345;
         
-        System.out.println("Nome " + a1.nome);
-        System.out.println("idade " + a1.idade);
-        System.out.println("matricula " + a1.matricula);
+        System.out.println("Nome: " + a1.nome);
+        System.out.println("Idade: " + a1.idade);
+        System.out.println("Numero da matricula: " + a1.matricula);
     }
 }
