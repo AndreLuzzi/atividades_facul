@@ -1,37 +1,30 @@
-//Faça um programa que deixe a diagonal principal com os mesmos numeros.
+#include <stdio.h>
 
-#include<stdio.h>
+int main() {
+    int n, i, j;
 
-int main(){
-    int n;
-
-    printf("Digite quantas linhas e colunas tera sua matriz: ");
+    printf("Digite o tamanho da matriz (n x n): ");
     scanf("%d", &n);
 
     int matriz[n][n];
 
-    for (i = 0; linha < coluna; coluna++){
-        for (coluna = 0; coluna < linha; coluna++){
-            if (linha = coluna){
-                matriz[linha][coluna] = 1;
-            } else{
-                matriz[linha][coluna] = 0;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            if (i == j) {
+                matriz[i][j] = 1;  
+            } else {
+                matriz[i][j] = 0; 
             }
-            
         }
-        
     }
-    printf("A matriz resultante e:\n");
-    for (linha = 0; linha < coluna; linha++) {
-        for (coluna = 0; coluna < linha; coluna++) {
-            printf("%d ", matriz[linha][coluna]);
+
+    printf("Sua matriz e:\n");
+    for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+            printf("%d ", matriz[i][j]);
         }
         printf("\n");
     }
-    
 
-    
-
-
-
+    return 0;
 }

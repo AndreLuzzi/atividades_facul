@@ -22,6 +22,6 @@ public class PrincipalAluno {
         System.out.println("Nome: " + a2.nome);
         System.out.println("Idade: " + a2.idade);
         System.out.println("Numero da matricula: " + a2.matricula);
-
+        
     }
 }

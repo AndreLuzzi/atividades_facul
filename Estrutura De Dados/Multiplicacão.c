@@ -1,37 +1,39 @@
-//Faça um programa que multiplique duas matrizes e diga caso não seja possível multiplica-la.
 #include <stdio.h>
 
 int main() {
-    int n, i, j;
+   
+    int M1[3][3];
+    int M2[3][3];
+    int resultado[3][3] = {0};
+   
+    printf("Digite os valores da primeira matriz (3x3):\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("Primeira Matriz[%d][%d]: ", i, j);
+            scanf("%d", &M1[i][j]);
+        }
+    }
 
-    // Leitura do tamanho da matriz
-    printf("Digite o tamanho da matriz (n x n): ");
-    scanf("%d", &n);
+    printf("\nDigite os valores da segunda matriz (3x3):\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("Segunda Matriz[%d][%d]: ", i, j);
+            scanf("%d", &M2[i][j]);
+        }
+    }
 
-    // Criando a matriz
-    int matriz[n][n];
-
-    // Preenchendo a matriz
-    printf("Digite o valor para a diagonal: ");
-    int valor;
-    scanf("%d", &valor);
-
-    // Preenchendo a matriz com 0 fora da diagonal
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
-            if (i == j) {
-                matriz[i][j] = valor;  // Valor na diagonal
-            } else {
-                matriz[i][j] = 0;  // 0 fora da diagonal
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                resultado[i][j] += M1[i][k] * M2[k][j];
             }
         }
     }
 
-    // Imprimindo a matriz
-    printf("A matriz resultante é:\n");
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
-            printf("%d ", matriz[i][j]);
+    printf("\nResultado de (A x B):\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d\t", resultado[i][j]);
         }
         printf("\n");
     }
