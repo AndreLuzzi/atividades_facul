@@ -15,7 +15,7 @@ public class Pessoa {
     }
 
     public void falar(){
-        System.out.println(this.nome + "está falando.");
-        System.out.println(this.nome + "tem "+ this.idade + " anos.");
+        System.out.println(this.nome + " esta falando.");
+        System.out.println(this.nome + " tem "+ this.idade + " anos.");
     }
 }
