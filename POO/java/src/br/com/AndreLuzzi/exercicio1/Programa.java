@@ -1,4 +1,4 @@
-package src.br.com.andreluzzi.exercicio1;
+package src.br.com.AndreLuzzi.exercicio1;
 
 public class Programa {
     public static void main(String[] args){
