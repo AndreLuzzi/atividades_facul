@@ -33,7 +33,7 @@ float distancia (Ponto* p1, Ponto* p2);
 #include <stdlib.h> /*malloc, free, exit*/
 #include <stdio.h> /*printf*/
 #include <math.h> /*sqrt*/
-#include "ponto.h
+#include "ponto.h"
 
 struct ponto {
 float x;

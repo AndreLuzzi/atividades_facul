@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Carro",
+      "request": "launch",
+      "mainClass": "br.com.andreluzzi.relacionamento.Carro",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
       "name": "PincipalContaBancaria",
       "request": "launch",
       "mainClass": "br.com.andreluzzi.exerciciop2.PincipalContaBancaria",
