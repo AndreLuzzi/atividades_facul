@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Principal",
+      "request": "launch",
+      "mainClass": "br.com.andreluzzi.relacionamento.Principal",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
       "name": "Carro",
       "request": "launch",
       "mainClass": "br.com.andreluzzi.relacionamento.Carro",
