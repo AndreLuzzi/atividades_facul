@@ -9,7 +9,7 @@ public class Principal {
         Pessoa p3 = new Pessoa();
 
         //Nome e idade
-        p1.nome = "João";
+        p1.nome = "Joao";
         p1.idade = 25;
 
         System.out.println("Nome "+p1.nome);

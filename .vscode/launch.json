@@ -13,6 +13,20 @@
       "name": "PincipalContaBancaria",
       "request": "launch",
       "mainClass": "br.com.andreluzzi.exerciciop2.PincipalContaBancaria",
+      "projectName": "atividades_facul_83939a2b"
+    },
+    {
+      "type": "java",
+      "name": "Principal",
+      "request": "launch",
+      "mainClass": "br.com.andreluzzi.exemplo.Principal",
+      "projectName": "atividades_facul_83939a2b"
+    },
+    {
+      "type": "java",
+      "name": "PincipalContaBancaria",
+      "request": "launch",
+      "mainClass": "br.com.andreluzzi.exerciciop2.PincipalContaBancaria",
       "projectName": "atividades_facul_65b5b569"
     },
     {
