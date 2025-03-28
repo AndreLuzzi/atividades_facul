@@ -3,6 +3,62 @@
   "configurations": [
     {
       "type": "java",
+      "name": "exercicio16",
+      "request": "launch",
+      "mainClass": "exercicio16",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio15",
+      "request": "launch",
+      "mainClass": "exercicio15",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio14",
+      "request": "launch",
+      "mainClass": "exercicio14",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio12",
+      "request": "launch",
+      "mainClass": "exercicio12",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio11",
+      "request": "launch",
+      "mainClass": "exercicio11",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio10",
+      "request": "launch",
+      "mainClass": "exercicio10",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio8",
+      "request": "launch",
+      "mainClass": "exercicio8",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "exercicio7",
+      "request": "launch",
+      "mainClass": "exercicio7",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
       "name": "exercicio6",
       "request": "launch",
       "mainClass": "exercicio6",
