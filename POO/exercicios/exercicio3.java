@@ -5,13 +5,13 @@ public class exercicio3 {
 
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("Digite um número: ");
+        System.out.print("Digite um numero: ");
         int numero = scanner.nextInt();
         
         if (numero % 2 == 0) {
-            System.out.println("O número " + numero + " é par.");
+            System.out.println("O numero " + numero + " e par.");
         } else {
-            System.out.println("O número " + numero + " é ímpar."); 
+            System.out.println("O numero " + numero + " e impar."); 
         }
         scanner.close();
     }
