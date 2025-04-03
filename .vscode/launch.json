@@ -5,6 +5,13 @@
       "type": "java",
       "name": "principal",
       "request": "launch",
+      "mainClass": "br.com.andreluzzi.exercicio2.principal",
+      "projectName": "atividades_facul_65b5b569"
+    },
+    {
+      "type": "java",
+      "name": "principal",
+      "request": "launch",
       "mainClass": "br.com.andreluzzi.exercicio1.principal",
       "projectName": "atividades_facul_65b5b569"
     },
