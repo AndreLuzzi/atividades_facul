@@ -1,4 +1,4 @@
-package br.com.andreluzzi.exercicio1;
+package br.com.andreluzzi.exercicios;
 
 public class ex01 {
 
