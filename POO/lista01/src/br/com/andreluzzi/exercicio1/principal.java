@@ -1,6 +1,6 @@
 package br.com.andreluzzi.exercicio1;
 
-public class principal {
+public class Principal {
     public static void main(String[] args) {
         Carro meuCarro = new Carro();
         meuCarro.marca = "Toyota";
