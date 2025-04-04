@@ -2,7 +2,7 @@ package br.com.andreluzzi.exercicio2;
 
 public class ContaBancaria {
     String titular;
-    float saldo;
+    double saldo;
 
     void depositar(double valor){
         saldo += valor;
@@ -17,7 +17,7 @@ public class ContaBancaria {
     }
 
     void exibirSaldo(){
-        System.out.println("Bem vindo: " + titular);
+        System.out.println("Bem vindo " + titular);
         System.out.println("Seu daldo atual: R$ " + saldo);
     }
 }
