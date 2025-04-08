@@ -4,9 +4,10 @@ create table Clientes (
     email varchar(100),
     data_nasc date,
     data_cadastro date,
-    observacao varchar(255)
-)
-
+    observacao varchar(255),
+    tipo_cliente varchar(10) check (tipo_cliente in ('Fisica', 'Juridica'))  -- Adiciona a coluna tipo_cliente
+) 	
+	
 create table Pessoa_fisica (
     id_cliente int primary key,
     id_pessoa_fisica int,
@@ -23,7 +24,7 @@ create table Pessoa_juridica (
 
 create table Telefone (
     id_telefone serial primary key,
-    numero int
+    numero varchar(11)
 )
 
 create table Clientes_telefone (
@@ -42,7 +43,7 @@ create table Endereco (
     cidade varchar(20) not null,
     estado varchar(10) not null,
     pais varchar(30) not null,
-    complemento varchar(20),
+    complemento varchar(40),
     bairro varchar(20),
     referencia varchar(255)
 )
@@ -65,7 +66,7 @@ create table Vendedor (
     nome varchar(20),
     email varchar(100),
     cpf char(11) unique,
-    numero int
+    numero varchar(11)
 )
 
 create table Produto (
@@ -87,7 +88,7 @@ create table Pedido (
     valor_desconto real check (valor_desconto <= 50),
     observacao varchar(255) not null,
     prazo_entrega date,
-    constraint chk_prazo_entrega check (prazo_entrega <= data_pedido + interval '30 dias'),
+    constraint chk_prazo_entrega check (prazo_entrega <= data_pedido + interval '30 days'),
     constraint fk_cliente foreign key (id_cliente) references Clientes(id_cliente),
     constraint fk_endereco foreign key (id_endereco) references Endereco(id_endereco),
     constraint fk_pagamento foreign key (id_forma_pagamento) references Forma_pagamento(id_forma_pagamento),
@@ -123,46 +124,71 @@ insert into Forma_pagamento (tipo) values ('A vista')
 insert into Forma_pagamento (tipo) values ('Debito')
 insert into Forma_pagamento (tipo) values ('Credito')
 
-insert into Clientes (id_cliente, nome, email, data_nasc, data_cadastro, observacao, tipo_cliente) values (1, 'Dra. Isabella Porto', 'alexia67@hotmail.com', '1977-09-22', '2020-05-27', 'Id dignissimos ex expedita adipisci.', 'Física')
-insert into Clientes (id_cliente, nome, email, data_nasc, data_cadastro, observacao, tipo_cliente) values (2, 'Bryan Mendes', 'nascimentoluiz-fernando@yahoo.com.br', '1969-01-17', '2021-10-05', 'Optio repellat debitis facere accusamus.', 'Física')
-insert into Clientes (id_cliente, nome, email, data_nasc, data_cadastro, observacao, tipo_cliente) values (3, 'Benjamin Ramos', 'qteixeira@ig.com.br', '1994-10-10', '2020-04-19', 'Harum mollitia vel ullam cupiditate ut.', 'Física')
+select*from Forma_pagamento
+
+insert into Clientes (id_cliente, nome, email, data_nasc, data_cadastro, observacao, tipo_cliente) values (1, 'Clebin', 'Clebin67@hotmail.com', '22-02-1977', '27-05-2020', 'O Clebin e um cara lega', 'Fisica')
+insert into Clientes (id_cliente, nome, email, data_nasc, data_cadastro, observacao, tipo_cliente) values (2, 'Juseudi', 'Juseudi@hotmail.com.br', '17-01-1999', '05-10-2021', 'O Juseudi e um cara chato', 'Fisica')
+insert into Clientes (id_cliente, nome, email, data_nasc, data_cadastro, observacao, tipo_cliente) values (3, 'Catatau', 'Catatau@hotmail.com.br', '15-08-1994', '19-04-2020', 'O Catatau tem pendencias', 'Fisica')
+
+select*from Clientes
 	
 insert into Pessoa_fisica (id_cliente, id_pessoa_fisica, cpf) values (1, 10, 28354160726)
 insert into Pessoa_juridica (id_cliente, id_pessoa_juridica, cnpj) values (2, 20, 12967034000139)
 insert into Pessoa_juridica (id_cliente, id_pessoa_juridica, cnpj) values (3, 30, 39127564000125)
+
+select*from Pessoa_fisica
+select*from Pessoa_juridica
 	
-insert into Telefone (id_telefone, numero) values (1, 5561919386482)
-insert into Telefone (id_telefone, numero) values (2, 5561978535149)
-insert into Telefone (id_telefone, numero) values (3, 5531920408402)
+insert into Telefone (id_telefone, numero) values (1, 45999193864)
+insert into Telefone (id_telefone, numero) values (2, 45999785351)
+insert into Telefone (id_telefone, numero) values (3, 45998204084)
+
+select*from Telefone
 	
 insert into Clientes_telefone (id_cliente, id_telefone) values (1, 1)
 insert into Clientes_telefone (id_cliente, id_telefone) values (2, 2)
 insert into Clientes_telefone (id_cliente, id_telefone) values (3, 3)
+
+select*from Clientes_telefone
 	
-insert into Endereco (id_endereco, cep, logradouro, numero, cidade, estado, pais, complemento, bairro, referencia) values (1, 02973656, 'Viela de da Costa', 347, 'Ferreira', 'RR', 'Brasil', 'ratione', 'Pindura Saia', 'Aut minima quidem minima.')
-insert into Endereco (id_endereco, cep, logradouro, numero, cidade, estado, pais, complemento, bairro, referencia) values (2, 99564141, 'Lago Enzo Gabriel Barros', 380, 'Vieira', 'MA', 'Brasil', 'aut', 'Tirol', 'Expedita asperiores.')
-insert into Endereco (id_endereco, cep, logradouro, numero, cidade, estado, pais, complemento, bairro, referencia) values (3, 84787334, 'Vale de Rezende', 457, 'Alves', 'PI', 'Brasil', 'impedit', 'Acaba Mundo', 'Similique voluptate ad dolorum.')
+insert into Endereco (id_endereco, cep, logradouro, numero, cidade, estado, pais, complemento, bairro, referencia) values (1, 85819040, 'Joao Merlim', 347, 'Cascavel', 'PR', 'Brasil', 'residencial west park', 'Universitario', 'proximo ao lanche da vovo')
+insert into Endereco (id_endereco, cep, logradouro, numero, cidade, estado, pais, complemento, bairro, referencia) values (2, 85814283, 'felicidade', 380, 'Cascavel', 'PR', 'Brasil', 'casa verde de madeira', 'Interlagos', 'proximo ao mercado samara')
+insert into Endereco (id_endereco, cep, logradouro, numero, cidade, estado, pais, complemento, bairro, referencia) values (3, 85814285, 'Nurburgring', 457, 'Cascavel', 'PR', 'Brasil', 'sobrado do portao rosa', 'Interlagos', 'proximo ao mercado samara')
+
+select*from Endereco
 	
 insert into Clientes_endereco (id_cliente, id_endereco) values (1, 1)
 insert into Clientes_endereco (id_cliente, id_endereco) values (2, 2)
 insert into Clientes_endereco (id_cliente, id_endereco) values (3, 3)
+
+select*from Clientes_endereco
 	
-insert into Usuario (id_vendedor, nome, email, cpf, numero) values (1, 'Antônio Silva', 'enzo-gabriel75@uol.com.br', 91047523680, 5571934923103)
-insert into Usuario (id_vendedor, nome, email, cpf, numero) values (2, 'Srta. Julia Costa', 'xnovaes@fernandes.br', 45730926847, 5551918941497)
-insert into Usuario (id_vendedor, nome, email, cpf, numero) values (3, 'Maria Cecília Peixoto', 'uda-luz@da.com', 53420861753, 5531983032109)
+insert into Usuario (id_vendedor, nome, email, cpf, numero) values (1, 'Josefa', 'Josefa@hotmail.com.br', 91047523680, 45999402855)
+insert into Usuario (id_vendedor, nome, email, cpf, numero) values (2, 'Clovis', 'Clovis@gmail.com', 45730926847, 45998999663)
+insert into Usuario (id_vendedor, nome, email, cpf, numero) values (3, 'Jusiscleia', 'Jusiscleia@outlook.com', 53420861753, 45999506031)
+
+select*from Usuario
 	
-insert into Produto (id_produto, descricao, codigo, peso) values (1, 'soluta', 9935, 90)
-insert into Produto (id_produto, descricao, codigo, peso) values (2, 'inventore', 7912, 33)
-insert into Produto (id_produto, descricao, codigo, peso) values (3, 'dolor', 1488, 96)
+insert into Produto (id_produto, descricao, codigo, peso) values (1, 'Do bom', 9935, 90)
+insert into Produto (id_produto, descricao, codigo, peso) values (2, 'Do caro', 7912, 33)
+insert into Produto (id_produto, descricao, codigo, peso) values (3, 'Do forte', 1488, 96)
+
+select*from Produto
 	
-insert into Pedido (id_pedido, id_cliente, id_endereco, id_forma_pagamento, id_vendedor, numero, data_pedido, valor_pedido, valor_desconto, observacao, prazo_entrega) values (1, 1, 1, 1, 1, 101, '2022-05-18', 296.77, 25.27, 'Cum velit ipsa.', '2022-05-19T00:00:00')
-insert into Pedido (id_pedido, id_cliente, id_endereco, id_forma_pagamento, id_vendedor, numero, data_pedido, valor_pedido, valor_desconto, observacao, prazo_entrega) values (2, 2, 2, 2, 2, 102, '2023-08-30', 605.12, 35.8, 'Minima sit fugit rerum rerum nihil.', '2023-09-22T00:00:00')
-insert into Pedido (id_pedido, id_cliente, id_endereco, id_forma_pagamento, id_vendedor, numero, data_pedido, valor_pedido, valor_desconto, observacao, prazo_entrega) values (3, 3, 3, 3, 3, 103, '2024-01-09', 590.45, 11.02, 'Impedit alias dolor laudantium aperiam minus.', '2024-01-28T00:00:00')
+insert into Pedido (id_pedido, id_cliente, id_endereco, id_forma_pagamento, id_vendedor, numero, data_pedido, valor_pedido, valor_desconto, observacao, prazo_entrega) values (1, 1, 1, 1, 1, 101, '18-05-2022', 296.77, 25.27, 'Esse vai para entrega', '19-05-2022')
+insert into Pedido (id_pedido, id_cliente, id_endereco, id_forma_pagamento, id_vendedor, numero, data_pedido, valor_pedido, valor_desconto, observacao, prazo_entrega) values (2, 2, 2, 2, 2, 102, '30-08-2023', 605.12, 35.8, 'Esse vai pra entrega quando chegar o produto', '22-09-2023')
+insert into Pedido (id_pedido, id_cliente, id_endereco, id_forma_pagamento, id_vendedor, numero, data_pedido, valor_pedido, valor_desconto, observacao, prazo_entrega) values (3, 3, 3, 3, 3, 103, '09-01-2024', 590.45, 11.02, 'Vai para entrega', '28-01-2024')
+
+select*from Pedido
 	
-insert into Nota_fiscal (id_nota, id_pedido, data_emissao, numero_nf, chave_acesso) values (1, 1, '2022-11-16', 10001, 4733616459)
-insert into Nota_fiscal (id_nota, id_pedido, data_emissao, numero_nf, chave_acesso) values (2, 2, '2024-08-09', 10002, 7110082321)
-insert into Nota_fiscal (id_nota, id_pedido, data_emissao, numero_nf, chave_acesso) values (3, 3, '2022-12-21', 10003, 2193448329)
+insert into Nota_fiscal (id_nota, id_pedido, data_emissao, numero_nf, chave_acesso) values (1, 1, '16-11-2022', 101, 001)
+insert into Nota_fiscal (id_nota, id_pedido, data_emissao, numero_nf, chave_acesso) values (2, 2, '09-08-2024', 102, 002)
+insert into Nota_fiscal (id_nota, id_pedido, data_emissao, numero_nf, chave_acesso) values (3, 3, '21-12-2022', 103, 003)
+
+select*from Nota_fiscal
 	
 insert into Pedido_produto (id_pedido, id_produto, quantidade, valor_venda) values (1, 1, 4, 479.03)
 insert into Pedido_produto (id_pedido, id_produto, quantidade, valor_venda) values (2, 2, 6, 60.08)
 insert into Pedido_produto (id_pedido, id_produto, quantidade, valor_venda) values (3, 3, 7, 57.39)
+
+select*from Pedido_produto
