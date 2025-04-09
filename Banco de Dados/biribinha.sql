@@ -5,7 +5,7 @@ create table Clientes (
     data_nasc date,
     data_cadastro date,
     observacao varchar(255),
-    tipo_cliente varchar(10) check (tipo_cliente in ('Fisica', 'Juridica'))  -- Adiciona a coluna tipo_cliente
+    tipo_cliente varchar(10) check (tipo_cliente in ('Fisica', 'Juridica'))  
 ) 	
 	
 create table Pessoa_fisica (
