@@ -7,7 +7,7 @@ public class Principal {
         Scanner scanner = new Scanner(System.in);
         int numero;
         do {
-            System.out.print("Digite um número natural (>=1) para calcular a tabuada: ");
+            System.out.print("Digite um numero para calcular a tabuada: ");
             numero = scanner.nextInt();
         } while (numero < 1);
 
