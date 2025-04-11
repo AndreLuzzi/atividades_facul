@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Principal",
+      "request": "launch",
+      "mainClass": "br.com.andreluzzi.exercicio3.Principal",
+      "projectName": "atividades_facul_83939a2b"
+    },
+    {
+      "type": "java",
       "name": "principal",
       "request": "launch",
       "mainClass": "br.com.andreluzzi.exercicio2.principal",

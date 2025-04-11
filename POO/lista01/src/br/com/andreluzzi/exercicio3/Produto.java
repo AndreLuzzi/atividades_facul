@@ -3,22 +3,23 @@ package br.com.andreluzzi.exercicio3;
 public class Produto {
     String nome;
     double preco;
-    int quantidadeEmEstoque;
+    int estoque;
 
     void vender(int quantidade){
-        if (quantidadeEmEstoque >= quantidade) {
-            quantidadeEmEstoque -= quantidade;
+        if (estoque >= quantidade) {
+            estoque -= quantidade;
         } else {
-            System.out.println("Estoque Insuficiente");
+            System.out.println("O estoque é insuficiente");
         }
     }
 
     void reporEstoque(int quantidade){
-        quantidadeEmEstoque += quantidade;
+        estoque += quantidade;
     }
 
     void exibirDetalhes(){
-        
+        System.out.println("Nome do Produto: " + nome);
+        System.out.println("Seu Preco: R$ " + preco);
+        System.out.println("Quantidade em Estoque: " + estoque);
     }
-
 }
