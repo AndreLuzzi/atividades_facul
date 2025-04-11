@@ -16,7 +16,7 @@ public class Produto {
 
     void exibirDetalhes() {
         System.out.println("Nome: " + nome);
-        System.out.println("Preço: R$ " + preco);
+        System.out.println("Preco: R$ " + preco);
         System.out.println("Quantidade: " + quantidade);
     }
 }
