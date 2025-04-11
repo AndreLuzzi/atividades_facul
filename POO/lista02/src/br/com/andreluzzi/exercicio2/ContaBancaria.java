@@ -3,7 +3,7 @@ package br.com.andreluzzi.exercicio2;
 public class ContaBancaria {
     private String numerodaConta;
     private String titular;
-    private double saldo;
+    private double saldo; 
 
     public String getNumerodaConta() {
         return numerodaConta;
