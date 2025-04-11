@@ -14,7 +14,7 @@ public class Principal {
 
         Livro l3 = new Livro();
         l3.titulo = "O surdo que ouvia";
-        l3.autor "Orlando";
+        l3.autor = "Orlando";
         l3.anoPublicacao = 2003;
 
         l1.informacoes();
