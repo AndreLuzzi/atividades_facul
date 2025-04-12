@@ -3,7 +3,7 @@ package agenda;
 import java.util.Scanner;
 public class Principal {
 
-  
+    //Cria uma instância de Persistencia e chama o método listarContatos() para exibir os contatos armazenados no arquivo contatos.txt. A parte comentada, que inclui a criação e adição de novos contatos, foi desativada.
     public static void main(String[] args) {
     /*    String nome = "Luke Skywalker";
         String telefone = "(45)99999-9999";
@@ -30,7 +30,7 @@ public class Principal {
        System.out.println("Email: ");
        c.setEmail(leia.nextLine());
         
-        persistencia.inserir(c); */
+       persistencia.inserir(c); */
     
     
     //EXEMPLO LISTAR
