@@ -5,9 +5,9 @@ public class Principal {
         Gerente g = new Gerente();
 
         g.setNome("Erico");
-        g.setSalarioBase(50000.0); // Corrigido: era string
-        g.setBonus(100000.0);      // Corrigido: era string
+        g.setSalarioBase(5000.0); 
+        g.setBonus(3000.0);      
 
-        System.out.println("Salário total do gerente " + g.getNome() + ": R$" + g.calcularSalarioTotal());
+        System.out.println("Salario total do gerente " + g.getNome() + ": R$" + g.calcularSalarioTotal());
     }
 }
