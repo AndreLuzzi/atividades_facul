@@ -1,6 +1,6 @@
 package br.com.andreluzzi.exercicio2;
 
-class Cachorro extends Animal {
+public class Cachorro extends Animal {
     String raca;
 
     public Cachorro(String nome, String raca) {

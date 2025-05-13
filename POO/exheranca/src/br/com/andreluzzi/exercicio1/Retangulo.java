@@ -1,6 +1,6 @@
 package br.com.andreluzzi.exercicio1;
 
-class Retangulo extends Forma {
+public class Retangulo extends Forma {
     double lado1, lado2;
 
     public Retangulo(double lado1, double lado2) {

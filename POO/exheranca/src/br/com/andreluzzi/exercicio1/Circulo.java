@@ -1,6 +1,6 @@
 package br.com.andreluzzi.exercicio1;
 
-class Circulo extends Forma {
+public class Circulo extends Forma {
     double raio;
 
     public Circulo(double raio) {

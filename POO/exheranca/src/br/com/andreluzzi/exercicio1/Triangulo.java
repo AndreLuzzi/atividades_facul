@@ -1,6 +1,6 @@
 package br.com.andreluzzi.exercicio1;
 
-class Triangulo extends Forma {
+public class Triangulo extends Forma {
     double base, altura;
 
     public Triangulo(double base, double altura) {
