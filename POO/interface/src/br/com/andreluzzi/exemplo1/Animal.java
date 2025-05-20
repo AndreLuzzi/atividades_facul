@@ -1,4 +1,4 @@
-package br.com.andreluzzi.interface.exemplo1;
+package br.com.andreluzzi.exemplo1;
 
 public class Animal implements SerVivo{
      public Animal() {

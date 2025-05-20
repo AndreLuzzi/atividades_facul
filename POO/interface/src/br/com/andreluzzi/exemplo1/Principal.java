@@ -1,4 +1,4 @@
-package br.com.leonardovieira.Interface.Exemplo1;
+package br.com.andreluzzi.exemplo1;
 
 public class Principal {
     public static void main(String[] args) {
