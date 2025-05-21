@@ -74,13 +74,13 @@ create table produto (
     codigo int,
     descricao varchar(255),
     observacao varchar(255),
-    peso double
+    peso real
 )
 
 create table tabelapreco (
     idtabelapreco serial primary key,
     descricao int,
-    descontomaximo double,
+    descontomaximo real,
     codigo int,
     iniciovigencia date,
     fimvigencia date,
@@ -91,7 +91,7 @@ create table tabelaprecoproduto (
     idtabelaprecoproduto serial primary key,
     idtabelapreco int,
     idproduto int,
-    preco double,
+    preco real,
     constraint fk_tabelapreco foreign key (idtabelapreco) references tabelapreco(idtabelapreco),
     constraint fk_produto foreign key (idproduto) references produto(idproduto)
 )
@@ -99,8 +99,8 @@ create table tabelaprecoproduto (
 create table pedido (
     idpedido serial primary key,
     numero int,
-    valortotal double,
-    quantidadeprodutos double,
+    valortotal real,
+    quantidadeprodutos real,
     observacao varchar(255),
     idtabelapreco int,
     idcondicaopagamento int,
@@ -117,15 +117,15 @@ create table pedidoproduto (
     idpedidoproduto serial primary key,
     idpedido int,
     idproduto int,
-    valor double,
-    quantidade double,
+    valor real,
+    quantidade real,
     constraint fk_pedido foreign key (idpedido) references pedido(idpedido),
     constraint fk_produto foreign key (idproduto) references produto(idproduto)
 )
 
---1
+insert into pais (idpais, nome, sigla) values  
+                                                                                                 
+--1)
 select u.nome as nome_usuario, u.email, e.logradouro, e.numero, e.cep, e.complemento, t.numero as telefone from usuario u
 left join endereco e on e.idusuario = u.idusuario
 left join telefone t on t.idusuario = u.idusuario;
-
-
