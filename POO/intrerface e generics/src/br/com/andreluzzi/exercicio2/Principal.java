@@ -6,7 +6,17 @@ public class Principal {
         Animal gato = new gato();
         Animal passaro = new passaro();
 
-        System.out.println();
+        System.out.println("----Cachorro----");
+        cachorro.emitirSom();
+        cachorro.mover();
+        
+        System.out.println("----Gato----");
+        gato.emitirSom();
+        gato.mover();
+        
+        System.out.println("----Pasaro----");
+        passaro.emitirSom();
+        passaro.mover();
     }
 
 }
