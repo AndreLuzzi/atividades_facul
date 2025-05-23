@@ -8,7 +8,7 @@ public class Cachorro implements Animal {
     }
 
     @Override
-    publci void mover() {
+    public void mover() {
         System.out.println("O cachorro vai comecar a correr");
     }
 }

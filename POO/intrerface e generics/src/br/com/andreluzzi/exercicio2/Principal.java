@@ -2,9 +2,9 @@ package br.com.andreluzzi.exercicio2;
 
 public class Principal {
     public static void main(String[] args) {
-        Animal cachorro = new cachorro();
-        Animal gato = new gato();
-        Animal passaro = new passaro();
+        Animal cachorro = new Cachorro();
+        Animal gato = new Gato();
+        Animal passaro = new Passaro();
 
         System.out.println("----Cachorro----");
         cachorro.emitirSom();
