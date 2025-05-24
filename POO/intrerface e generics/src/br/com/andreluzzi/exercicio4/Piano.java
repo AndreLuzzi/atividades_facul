@@ -3,7 +3,7 @@ package br.com.andreluzzi.exercicio4;
 public class Piano implements InstrumentoMusical {
     @Override
     public void tocar() {
-        System.out.println("Tocando piano com melodia clássica.");
+        System.out.println("Tocando piano com melodia classica.");
     }
 
     @Override

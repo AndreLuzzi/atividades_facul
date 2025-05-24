@@ -2,7 +2,6 @@ package br.com.andreluzzi.exercicio4;
 
 public class Principal {
 
-    // Função polimórfica
     public static void executarInstrumento(InstrumentoMusical instrumento) {
         instrumento.afinar();
         instrumento.tocar();
@@ -13,7 +12,7 @@ public class Principal {
         InstrumentoMusical piano = new Piano();
         InstrumentoMusical flauta = new Flauta();
 
-        System.out.println("--- Violão ---");
+        System.out.println("--- Violao ---");
         executarInstrumento(violao);
 
         System.out.println("\n--- Piano ---");
