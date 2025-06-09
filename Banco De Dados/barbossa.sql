@@ -153,31 +153,133 @@ insert into pedido (numero, valortotal, quantidadeprodutos, observacao, idtabela
 insert into pedidoproduto (idpedido, idproduto, valor, quantidade) values (1, 1, 3000.00, 1), (1, 2, 80.00, 1), (2, 3, 250.00, 1), (3, 4, 1200.00, 1), (4, 5, 350.00, 1);
 
 --1)
-select u.nome as nome_usuario, u.email, e.logradouro, e.numero, e.cep, e.complemento, t.numero as telefone from usuario u
+select u.nome, u.email, e.logradouro, e.numero, e.cep, e.complemento, t.numero
+from usuario u
 left join endereco e on e.idusuario = u.idusuario
 left join telefone t on t.idusuario = u.idusuario;
 
 --2)
-select p.nomefantasia as nome_fantasia_parceiro,
-    c.nome as cidade,
-    e.nome as estado,
-    e.sigla as sigla_estado,
-    pa.nome as pais,
-    pa.sigla as sigla_pais
+select p.nomefantasia, c.nome, e.nome, e.sigla, pa.nome, pa.sigla
 from parceiro p
-join endereco en on en.idparceiro = p.idparceiro
-join cidade c on c.idcidade = en.idcidade
-join estado e on e.idestado = c.idestado
-join pais pa on pa.idpais = e.idpais;
+inner join endereco en on en.idparceiro = p.idparceiro
+inner join cidade c on c.idcidade = en.idcidade
+inner join estado e on e.idestado = c.idestado
+inner join pais pa on pa.idpais = e.idpais;
 
 --3)
 select distinct tp.*
 from tabelapreco tp
-join tabelaprecoproduto tpp on tpp.idtabelapreco = tp.idtabelapreco
-join produto pr on pr.idproduto = tpp.idproduto
-join pedidoproduto pp on pp.idproduto = pr.idproduto
-join pedido p on p.idpedido = pp.idpedido
+inner join tabelaprecoproduto tpp on tpp.idtabelapreco = tp.idtabelapreco
+inner join produto pr on pr.idproduto = tpp.idproduto
+inner join pedidoproduto pp on pp.idproduto = pr.idproduto
+inner join pedido p on p.idpedido = pp.idpedido
 where tp.idinativo = false
   and current_date between tp.iniciovigencia and tp.fimvigencia
-  and pr.peso > :peso_minimo
-  and p.idparceiro = :id_parceiro;
+  and pr.peso < 3
+  and p.idparceiro = 2;
+select*from pedido;
+select*from produto;
+
+--4)
+select 
+    p.idpedido,
+    p.data,
+    p.valortotal,
+    p.quantidadeprodutos,
+    par.nome,
+    par.nomefantasia,
+    u.nome,
+    u.email,
+    tp.descricao,
+    cp.descricao,
+    prod.descricao,
+    prod.codigo,
+    pp.valor,
+    pais.nome,
+    pais.sigla,
+    est.sigla,
+    t.numero
+from pedido p
+inner join parceiro par on p.idparceiro = par.idparceiro
+inner join usuario u on p.idusuario = u.idusuario
+inner join tabelapreco tp on p.idtabelapreco = tp.idtabelapreco
+inner join condicaopagamento cp on p.idcondicaopagamento = cp.idcondicaopagamento
+inner join pedidoproduto pp on p.idpedido = pp.idpedido
+inner join produto prod on pp.idproduto = prod.idproduto
+inner join endereco e on par.idparceiro = e.idparceiro
+inner join cidade c on e.idcidade = c.idcidade
+inner join estado est on c.idestado = est.idestado
+inner join pais pais on est.idpais = pais.idpais
+inner join telefone t on par.idparceiro = t.idparceiro;
+
+--5)
+create table transportadora (
+    id_transportadora serial primary key,
+    nome varchar(100) not null,
+    cnpj varchar(18) not null unique
+);
+
+alter table telefone
+add column id_transportadora int,
+add constraint fk_telefone_transportadora foreign key (id_transportadora)
+references transportadora(id_transportadora);
+
+alter table endereco
+add column id_transportadora int,
+add constraint fk_endereco_transportadora foreign key (id_transportadora)
+references transportadora(id_transportadora)
+
+create table nota_fiscal (
+    id_nota_fiscal serial primary key,
+    numero_nf varchar(20) not null,
+    chave_acesso varchar(50) not null unique,
+    data_emissao date not null,
+    valor_total decimal(10, 2) not null,
+    valor_icms decimal(10, 2),
+    base_calculo_icms decimal(10, 2),
+    valor_pis decimal(10, 2),
+    valor_cofins decimal(10, 2),
+    idpedido int not null,
+    idparceiro int not null,
+    idendereco int not null,
+    id_transportadora int not null,
+    constraint fkpedido foreign key (idpedido) references pedido(idpedido),
+    constraint fkparceiro foreign key (idparceiro) references parceiro(idparceiro),
+    constraint fkendereco foreign key (idendereco) references endereco(idendereco),
+    constraint fk_transportadora foreign key (id_transportadora) references transportadora(id_transportadora)
+)
+
+insert into transportadora (nome, cnpj) values
+('transrapido', '12.345.678/0001-01'),
+('expresso do sul', '98.765.432/0001-02'),
+('nordeste cargas', '11.222.333/0001-03'),
+('rodofrete brasil', '22.333.444/0001-04'),
+('carga certa', '33.444.555/0001-05')
+
+insert into nota_fiscal (numero_nf, chave_acesso, data_emissao, valor_total, valor_icms, base_calculo_icms,
+valor_pis, valor_cofins, idpedido, idparceiro, idendereco, id_transportadora) values
+('nf001', '1000000001', '2025-05-01', 1000.00, 180.00, 1000.00, 15.00, 30.00, 1, 1, 1, 1),
+('nf002', '1000000002', '2025-05-02', 1500.00, 270.00, 1500.00, 22.50, 45.00, 2, 2, 2, 2),
+('nf003', '1000000003', '2025-05-03', 2000.00, 360.00, 2000.00, 30.00, 60.00, 3, 3, 3, 3),
+('nf004', '1000000004', '2025-05-04', 2500.00, 450.00, 2500.00, 37.50, 75.00, 4, 4, 4, 4),
+('nf005', '1000000005', '2025-05-05', 3000.00, 540.00, 3000.00, 45.00, 90.00, 5, 5, 5, 5),
+('nf006', '1000000006', '2025-05-06', 1200.00, 216.00, 1200.00, 18.00, 36.00, 1, 2, 1, 2),
+('nf007', '1000000007', '2025-05-07', 1800.00, 324.00, 1800.00, 27.00, 54.00, 2, 3, 2, 3),
+('nf008', '1000000008', '2025-05-08', 2200.00, 396.00, 2200.00, 33.00, 66.00, 3, 4, 3, 4),
+('nf009', '1000000009', '2025-05-09', 2700.00, 486.00, 2700.00, 40.50, 81.00, 4, 5, 4, 5),
+('nf010', '1000000010', '2025-05-10', 3200.00, 576.00, 3200.00, 48.00, 96.00, 5, 1, 5, 1),
+('nf011', '1000000011', '2025-05-11', 1100.00, 198.00, 1100.00, 16.50, 33.00, 1, 3, 1, 3),
+('nf012', '1000000012', '2025-05-12', 1700.00, 306.00, 1700.00, 25.50, 51.00, 2, 4, 2, 4),
+('nf013', '1000000013', '2025-05-13', 2100.00, 378.00, 2100.00, 31.50, 63.00, 3, 5, 3, 5),
+('nf014', '1000000014', '2025-05-14', 2600.00, 468.00, 2600.00, 39.00, 78.00, 4, 1, 4, 1),
+('nf015', '1000000015', '2025-05-15', 3100.00, 558.00, 3100.00, 46.50, 93.00, 5, 2, 5, 2),
+('nf016', '1000000016', '2025-05-16', 1300.00, 234.00, 1300.00, 19.50, 39.00, 1, 4, 1, 4),
+('nf017', '1000000017', '2025-05-17', 1900.00, 342.00, 1900.00, 28.50, 57.00, 2, 5, 2, 5),
+('nf018', '1000000018', '2025-05-18', 2300.00, 414.00, 2300.00, 34.50, 69.00, 3, 1, 3, 1),
+('nf019', '1000000019', '2025-05-19', 2800.00, 504.00, 2800.00, 42.00, 84.00, 4, 2, 4, 2),
+('nf020', '1000000020', '2025-05-20', 3300.00, 594.00, 3300.00, 49.50, 99.00, 5, 3, 5, 3),
+('nf021', '1000000021', '2025-05-21', 1400.00, 252.00, 1400.00, 21.00, 42.00, 1, 5, 1, 5),
+('nf022', '1000000022', '2025-05-22', 1600.00, 288.00, 1600.00, 24.00, 48.00, 2, 1, 2, 1),
+('nf023', '1000000023', '2025-05-23', 2400.00, 432.00, 2400.00, 36.00, 72.00, 3, 2, 3, 2),
+('nf024', '1000000024', '2025-05-24', 2900.00, 522.00, 2900.00, 43.50, 87.00, 4, 3, 4, 3),
+('nf025', '1000000025', '2025-05-25', 3400.00, 612.00, 3400.00, 51.00, 102.00, 5, 4, 5, 4);
