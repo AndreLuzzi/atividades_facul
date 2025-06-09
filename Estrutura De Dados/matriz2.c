@@ -1,6 +1,6 @@
 #include <stdlib.h> /* malloc, free, exit */
 #include <stdio.h> /* printf */
-#include "matriz.h"
+#include <matriz.h>
 struct matriz {
 int lin;
 int col;
