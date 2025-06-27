@@ -1,8 +1,8 @@
-create table usuario(
+create table usuarios(
 	id_usuario serial primary key,
 	email varchar(80),
-	senha varchar(30),
-)
+	senha varchar(64)
+);
 
 create table jogos(
 	id_jogo serial primary key,
@@ -10,7 +10,7 @@ create table jogos(
 	genero varchar(20),
 	preco numeric,
 	quantidade int
-)
+);
 
 create table vendas(
 	id_vendas serial primary key,
@@ -18,4 +18,8 @@ create table vendas(
 	data_venda date,
 	quantidade int,
 	total numeric
-)
+);
+
+select*from usuarios
+select*from jogos
+select*from vendas
