@@ -130,52 +130,51 @@ select*from emprestimo
 select*from livro_emprestimo
 select*from multa
 
-
+	
 select 
-    u.nome as "Nome",
-    u.email as "E-mail",
-    t.ddd || ' ' || t.numero as "Telefone",
-    case 
-        when e.tipo_endereco = 'fixo' then
-            'Rua: ' || coalesce(e.rua, '') || ', Nº: ' || coalesce(e.numero, '') ||
-            ', Bairro: ' || coalesce(e.bairro, '') || coalesce(', Comp: ' || e.complemento, '')
-        when e.tipo_endereco = 'ilha' then
-            'Ilha: ' || coalesce(e.descricao_ilha, '') || ', GPS: ' || coalesce(e.localizacao_gps, '')
-        else 'Sem endereço'
-    end as "Endereço Completo"
+  u.nome,
+  u.email,
+  t.ddd,
+  t.numero as telefone,
+  e.rua as logradouro,
+  e.numero,
+  e.bairro,
+  e.complemento,
+  e.descricao_ilha,
+  e.localizacao_gps as latitude_longitude
 from usuario u
 left join telefone t on u.matricula = t.matricula
-left join endereco e on u.matricula = e.matricula
-order by u.nome;
+left join endereco e on u.matricula = e.matricula;
 
 
 select 
-    u.nome as "Usuário",
-    u.matricula as "Código Usuário",
-    l.titulo as "Título do Livro",
-    l.codigo as "Código do Livro",
-    s.descricao as "Sessão",
-    s.codigo_sessao as "Código da Sessão",
-    u.email as "E-mail",
-    case 
-        when e.data_devolucao is null then 'Em andamento'
-        else 'Devolvido'
-    end as "Status do Empréstimo"
-from emprestimo e
-join usuario u on u.matricula = e.matricula
-join livro_emprestimo le on e.id_emprestimo = le.id_emprestimo
-join livro l on l.codigo = le.codigo_livro
-join sessao s on s.codigo_sessao = l.codigo_sessao
-order by e.id_emprestimo;
+  u.nome,
+  u.matricula,
+  l.titulo,
+  l.codigo as tombo,
+  s.descricao as sessao,
+  s.codigo_sessao,
+  u.email,
+  case 
+    when emp.data_devolucao is null then 'Emprestado'
+    else 'Devolvido'
+  end as status_emprestimo
+from usuario u
+inner join emprestimo emp on u.matricula = emp.matricula
+inner join livro_emprestimo le on emp.id_emprestimo = le.id_emprestimo
+inner join livro l on le.codigo_livro = l.codigo
+inner join sessao s on l.codigo_sessao = s.codigo_sessao;
 
 
 select 
-    m.matricula as "Código do Usuário",
-    count(m.id_multa) as "Qtd. de Multas",
-    sum(m.valor) as "Total Pago",
-    round(avg(m.valor), 2) as "Média",
-    min(m.valor) as "Menor Multa",
-    max(m.valor) as "Maior Multa"
-from multa m
-group by m.matricula
-order by m.matricula;
+  u.matricula,
+  u.nome,
+  count(m.id_multa) as qtd_multas,
+  sum(m.valor) as valor_total_pago,
+  avg(m.valor) as media_valor_pago,
+  min(m.valor) as menor_valor_pago,
+  max(m.valor) as maior_valor_pago
+from usuario u
+inner join multa m on u.matricula = m.matricula
+group by u.matricula, u.nome
+order by valor_total_pago desc;
