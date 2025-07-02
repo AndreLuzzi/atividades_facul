@@ -5,5 +5,8 @@ public class Principal {
         Gato gato = new Gato();
         gato.setIdade(22);
         gato.setNome("Andre");
+
+        System.out.println("Nome: " + gato.getNome());
+        System.out.println("Idade: " + gato.getIdade());
     }
 }
