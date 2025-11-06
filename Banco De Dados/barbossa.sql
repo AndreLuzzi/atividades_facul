@@ -1,4 +1,4 @@
-create table pais (
+            create table pais (
     idpais serial primary key,
     nome varchar(100),
     sigla varchar(10)
